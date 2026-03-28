@@ -1,3 +1,13 @@
+## 🚀 Live Test
+
+Test the application directly in the browser:
+
+👉 https://mya63.github.io/coderr_frontend/
+
+Guest login is available – no registration required.
+
+
+
 # Coderr/ Frontend Project
 
 ![Coderr Logo](assets/logo/logo_coderr.svg)
