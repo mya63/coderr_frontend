@@ -42,14 +42,22 @@ function jsonToFormData(json){
 
 function createHeaders() {
     const headers = {};
-
     const token = getAuthToken();
+
     if (token) {
         headers['Authorization'] = `Token ${token}`;
     }
 
     return headers;
 }
+
+// MYA START - handle invalid token
+function handleUnauthorized(response) {
+    if (response.status === 401) {
+        removeAuthCredentials();
+    }
+}
+// MYA END
 
 function getErrorMessage(error) {
     let errorMessage = 'Network error';
@@ -71,6 +79,9 @@ async function getData(endpoint) {
             method: 'GET',
             headers: createHeaders(),
         });
+
+        handleUnauthorized(response); // MYA FIX
+
         const responseData = await response.json();
         return {
             ok: response.ok,
@@ -95,8 +106,10 @@ async function postData(endpoint, data) {
             headers: createHeaders(),
             body: data
         });
-        const responseData = await response.json();
 
+        handleUnauthorized(response); // MYA FIX
+
+        const responseData = await response.json();
         return {
             ok: response.ok,
             status: response.status,
@@ -114,15 +127,17 @@ async function postData(endpoint, data) {
 }
 
 async function postDataWJSON(endpoint, data) {
-    
     let header = createHeaders();
     header['Content-Type'] = 'application/json';
+
     try {
         const response = await fetch(`${API_BASE_URL}${endpoint}`, {
             method: 'POST',
             headers: header,
             body: JSON.stringify(data)
         });
+
+        handleUnauthorized(response); // MYA FIX
         
         const responseData = await response.json();
         return {
@@ -144,12 +159,15 @@ async function postDataWJSON(endpoint, data) {
 async function patchDataWoFiles(endpoint, data) {
     let header = createHeaders();
     header['Content-Type'] = 'application/json';
+
     try {
         const response = await fetch(`${API_BASE_URL}${endpoint}`, {
             method: 'PATCH',
             headers: header,
             body: JSON.stringify(data)
         });
+
+        handleUnauthorized(response); // MYA FIX
 
         const responseData = await response.json();
         return {
@@ -169,7 +187,6 @@ async function patchDataWoFiles(endpoint, data) {
 }
 
 async function patchData(endpoint, formData) {
-
     const headers = createHeaders();
 
     try {
@@ -178,6 +195,8 @@ async function patchData(endpoint, formData) {
             headers: headers,
             body: formData
         });
+
+        handleUnauthorized(response); // MYA FIX
 
         const responseData = await response.json();
         return {
@@ -202,6 +221,8 @@ async function deleteData(endpoint) {
             method: 'DELETE',
             headers: createHeaders(),
         });
+
+        handleUnauthorized(response); // MYA FIX
 
         return {
             ok: response.ok,

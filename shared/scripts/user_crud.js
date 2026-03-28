@@ -41,15 +41,18 @@ function getUserInfo(id) {
     return globalUsers.find(user => user.user.pk === id) || null
 }
 
+// MYA START - remove error toast on public pages
 async function setCurrentUser() {
-    if (getAuthUserId()) {
-        let response = await getData(PROFILE_URL + getAuthUserId() + "/");
-        if (response.ok) {
-            currentUser = response.data;
-        } else {
-            showToastMessage(true, ['Eigene User konnte nicht gefunden werden'])
-        }
-        return response;
+    if (!getAuthUserId()) {
+        return { ok: false };
     }
-    return { ok: false }
+
+    let response = await getData(PROFILE_URL + getAuthUserId() + "/");
+
+    if (response.ok) {
+        currentUser = response.data;
+    }
+
+    return response;
 }
+// MYA END
