@@ -1,59 +1,89 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coderr/</title>
     <link rel="icon" type="image/png" href="./assets/logo/favicon.png" />
 
-    <link rel="stylesheet" href="./shared/styles/variables.css">
-    <link rel="stylesheet" href="./shared/styles/standard.css">
-    <link rel="stylesheet" href="./shared/styles/form.css">
-    <link rel="stylesheet" href="./shared/styles/assets.css">
-    <link rel="stylesheet" href="./shared/styles/fonts.css">
-    <link rel="stylesheet" href="./shared/styles/header_footer.css">
-    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./shared/styles/variables.css" />
+    <link rel="stylesheet" href="./shared/styles/standard.css" />
+    <link rel="stylesheet" href="./shared/styles/form.css" />
+    <link rel="stylesheet" href="./shared/styles/assets.css" />
+    <link rel="stylesheet" href="./shared/styles/fonts.css" />
+    <link rel="stylesheet" href="./shared/styles/header_footer.css" />
+    <link rel="stylesheet" href="./styles/index.css" />
 
     <script src="./shared/scripts/redirect.js"></script>
     <script src="./shared/scripts/ui_helper.js"></script>
-    
-    
+
     <script src="./shared/scripts/config.js"></script>
     <script src="./shared/scripts/auth.js"></script>
     <script src="./shared/scripts/api.js"></script>
     <script src="./shared/scripts/user_crud.js"></script>
     <script src="./shared/scripts/template/header_template.js"></script>
     <script src="./shared/scripts/header.js"></script>
-</head>
+  </head>
 
-<body onload="setHeader()" onclick="closeAllOpenedElements()">
+  <body onload="setHeader()" onclick="closeAllOpenedElements()">
     <header class="main_header">
+      <a class="logo" href="./index.html">
+        <img src="./assets/logo/logo_coderr.svg" alt="" srcset="" />
+      </a>
 
-        <a class="logo" href="./index.html">
-            <img src="./assets/logo/logo_coderr.svg" alt="" srcset="">
-        </a>
-
-        <div id="head_content_right" class="d_flex_cc_gm head_content_right"></div>
+      <div
+        id="head_content_right"
+        class="d_flex_cc_gm head_content_right"
+      ></div>
     </header>
 
     <main>
+      <section class="d_flex_cc_gl f_d_c">
+        <h1 class="font_prime_color">Datenschutz</h1>
         <section class="d_flex_cc_gl f_d_c">
-            <h1 class="font_prime_color">Datenschutz</h1>
-            <h1>Hier ist Platz für deinen generierten Datenschutz!</h1>
+          <h2>Allgemeine Informationen</h2>
 
+          <p>
+            Diese Website verarbeitet personenbezogene Daten nur im technisch
+            notwendigen Umfang.
+          </p>
+
+          <p>
+            Beim Besuch der Website können technische Daten wie IP-Adresse,
+            Browsertyp, Betriebssystem und Uhrzeit des Zugriffs verarbeitet
+            werden.
+          </p>
+
+          <p>
+            Wenn Sie uns per E-Mail kontaktieren, werden Ihre Angaben zur
+            Bearbeitung Ihrer Anfrage gespeichert.
+          </p>
+
+          <p>
+            Verantwortliche Stelle: Muhammed Yunus Amini, Frankfurter Straße 67,
+            63263 Neu-Isenburg.
+          </p>
+
+          <p>Kontakt: muhammedyunusamini4@gmail.com</p>
+
+          <p>
+            Coderr ist ein Projekt zu Lern- und Portfoliozwecken im Rahmen der
+            Developer Akademie.
+          </p>
+
+          <p>Quelle: eRecht24</p>
         </section>
+      </section>
     </main>
     <footer class="main_footer pad_l">
-        <a class="logo" href="./index.html">
-            <img src="./assets/logo/logo_coderr_light.svg" alt="" srcset="">
-        </a>
-        <p>© 2024 Coderr. All rights reserved.</p>
-        <div class="d_flex_cc_gm">
-            <a class="link" href="./imprint.html">Impressum</a>
-            <a class="link" href="./privacy_policy.html">Datenschutz</a>
-        </div>
+      <a class="logo" href="./index.html">
+        <img src="./assets/logo/logo_coderr_light.svg" alt="" srcset="" />
+      </a>
+      <p>© 2024 Coderr. All rights reserved.</p>
+      <div class="d_flex_cc_gm">
+        <a class="link" href="./imprint.html">Impressum</a>
+        <a class="link" href="./privacy_policy.html">Datenschutz</a>
+      </div>
     </footer>
-</body>
-
+  </body>
 </html>
