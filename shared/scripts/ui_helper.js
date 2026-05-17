@@ -96,15 +96,25 @@ function getPersonImgPath(filepath) {
 
 function getOfferImgPath(filepath) {
   if (filepath) {
-    if (filepath.startsWith('http')) {
+    if (filepath.includes('/media/')) {
       return filepath;
     }
 
-    if (filepath.startsWith('/media/')) {
-      return STATIC_BASE_URL + filepath.slice(1);
+    if (filepath.startsWith(STATIC_BASE_URL + 'offers/')) {
+      return filepath.replace(STATIC_BASE_URL + 'offers/', STATIC_BASE_URL + 'media/offers/');
     }
 
-    return STATIC_BASE_URL + 'media/' + filepath.replace(/^\/+/, '');
+    if (filepath.startsWith('/offers/')) {
+      return STATIC_BASE_URL + 'media' + filepath;
+    }
+
+    if (filepath.startsWith('offers/')) {
+      return STATIC_BASE_URL + 'media/' + filepath;
+    }
+
+    if (filepath.startsWith('http')) {
+      return filepath;
+    }
   }
 
   return './assets/img/placeholder.jpg';
