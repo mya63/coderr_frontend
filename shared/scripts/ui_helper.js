@@ -96,30 +96,13 @@ function getPersonImgPath(filepath) {
 
 function getOfferImgPath(filepath) {
   if (filepath) {
-    if (filepath.includes('/media/')) {
-      return filepath;
-    }
-
-    if (filepath.startsWith(STATIC_BASE_URL + 'offers/')) {
-      return filepath.replace(STATIC_BASE_URL + 'offers/', STATIC_BASE_URL + 'media/offers/');
-    }
-
-    if (filepath.startsWith('/offers/')) {
-      return STATIC_BASE_URL + 'media' + filepath;
-    }
-
-    if (filepath.startsWith('offers/')) {
-      return STATIC_BASE_URL + 'media/' + filepath;
-    }
-
-    if (filepath.startsWith('http')) {
-      return filepath;
+    if (filepath.includes("geralt-ai-generated-8211245_1920.jpg")) {
+      return "./assets/img/offers/geralt-ai-generated-8211245_1920.jpg";
     }
   }
 
-  return './assets/img/placeholder.jpg';
+  return "./assets/img/placeholder.jpg";
 }
-
 function showToastMessage(error = true, msg = []) {
   const toast = document.createElement("div");
   toast.className = "toast_msg d_flex_cc_gm";
